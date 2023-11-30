@@ -25,7 +25,7 @@ class GrupoController{
     }
 
     async listGrupo(req: Request, res: Response){
-        const grupos = GrupoServices.listGrupo();
+        const grupos = await GrupoServices.listGrupo();
 
         res.render('grupos', { grupos: grupos })
     }

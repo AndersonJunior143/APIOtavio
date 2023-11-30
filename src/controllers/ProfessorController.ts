@@ -25,7 +25,7 @@ class ProfessorController{
     }
 
     async listProfessor(req: Request, res: Response){
-        const professores = ProfessorServices.listProfessor();
+        const professores = await ProfessorServices.listProfessor();
 
         res.render('professores', { professores: professores })
     }

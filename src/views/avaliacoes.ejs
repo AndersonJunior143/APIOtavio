@@ -4,25 +4,57 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Avaliacoes</title>
+    <title>Inova Week: avaliações dos projetos</title>
     <%- include('../views/partials/head'); %>
 </head>
 <body class="container"></body>
 <header>
     <%- include('../views/partials/header'); %>
 </header>
+<main>
+    <div class="jumbotron">
+        <h1>Avaliações</h1>
+        <p>Aqui serão listadas todas as avaliações:</p>
+        <table>
+            <thead>
+                <th> Avaliador </th>
+                <th> </th>
+                <th> Projeto avaliado </th>
+                <th> </th>
+                <th> Nota </th>
+                <th> </th>
+            </thead>
+            <tbody>
+                <% console.log(avaliacoes); %>
+                <% for(var i=0; i < avaliacoes.length; i++) { %>
+                    <tr>
+                        <td>
+                            <%= avaliacoes[i].avaliador %>
+                        </td>
+                        <td> </td>
+                        <td>
+                            <%= avaliacoes[i].grupoAvaliado %>
+                        </td>
+                        <td> </td>
+                        <td>
+                            <%= avaliacoes[i].nota %>
+                        </td>
+                        <td> </td>
+                        <td>
+                            <button type="button" class="btn btn-outline-primary">Atualizar</button>
+                            <button type="button" class="btn btn-outline-danger">Deletar</button>
+                            <button type="button" class="btn btn-outline-success">Visualizar</button>
+                        </td>
+                    </tr>
+                    <% } %>
+            </tbody>
+        </table>
+    </div>
+</main>
 
-<body>
-    <main>
-        <div class="jumbotron">
-          <h1>Avaliações</h1>
-          <p>Aqui serão listados todas as avaliações:</p>
-        </div>
-      </main>
-
-    <footer>
-        <%- include('../views/partials/footer'); %>
-    </footer>
+<footer>
+    <%- include('../views/partials/footer'); %>
+</footer>
 
 </body>
 </html>
