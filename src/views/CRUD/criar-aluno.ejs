@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Atualizar Professor</title>
+</head>
+<body>
+  <h1>Atualizar Aluno</h1>
+
+  <label for="nome">Nome:</label>
+  <input type="text" id="nome" placeholder="Novo nome"><br><br>
+
+  <label for="e-mail">E-mail:</label>
+  <input type="text" id="disciplina" placeholder="Novo e-mail"><br><br>
+
+  <label for="matricula">Matrícula:</label>
+  <input type="text" id="matricula" placeholder="Nova matrícula"><br><br>
+
+  <button id="atualizarBtn">Atualizar</button>
+
+  <script>
+    const atualizarBtn = document.getElementById('atualizarBtn');
+
+    atualizarBtn.addEventListener('click', async () => {
+      const nome = document.getElementById('nome').value;
+      const disciplina = document.getElementById('disciplina').value;
+
+      try {
+        const professorId = 1; // Defina o ID do professor que deseja atualizar
+
+        const resposta = await fetch(`http://localhost:3000/professores/${professorId}`, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ nome, disciplina }),
+        });
+
+        if (resposta.ok) {
+          const data = await resposta.json();
+          console.log('Professor atualizado:', data.professorAtualizado);
+        } else {
+          console.error('Erro ao atualizar o Professor.');
+        }
+      } catch (error) {
+        console.error('Erro ao fazer a requisição:', error);
+      }
+    });
+  </script>
+</body>
+</html>
