@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alunos</title>
+    <%- include('../views/partials/head'); %>
+</head>
+<body class="container">
+
+<header>
+    <%- include('../views/partials/header'); %>
+</header>
+
+<main>
+    <div class="jumbotron">
+        <h1>Alunos</h1>
+        <p>Aqui serão listados todos os alunos:</p>
+        <table>
+            <thead>
+                <th>Nome</th>
+                <th>E-mail</th>
+            </thead>
+            <tbody>
+                <% alunos.forEach(aluno => { %>
+                    <tr>
+                        <td><%= aluno.nomeAluno %></td>
+                        <td><%= aluno.email %></td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </div>
+</main>
+
+<footer>
+    <%- include('../views/partials/footer'); %>
+</footer>
+
+</body>
+</html>
